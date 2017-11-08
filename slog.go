@@ -9,6 +9,8 @@ const (
 	printTerminalCols = 80
 )
 
+var Enabled = false
+
 func padding(name, value string) string {
 	size := 30 - len(name)
 	return strings.Repeat(".", size)
@@ -31,6 +33,9 @@ func line(name, value string) {
 }
 
 func Service(name string) {
+	if !Enabled {
+		return
+	}
 	if len(name) > 74 {
 		name = name[:74]
 	}
@@ -39,6 +44,9 @@ func Service(name string) {
 }
 
 func Value(name string, value interface{}) {
+	if !Enabled {
+		return
+	}
 	if value == nil {
 		line(name, "(nil)")
 	} else {
@@ -68,6 +76,9 @@ func Value(name string, value interface{}) {
 }
 
 func Secret(name string, value interface{}) {
+	if !Enabled {
+		return
+	}
 	if value == nil {
 		line(name, "(nil)")
 	} else {

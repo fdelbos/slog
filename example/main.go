@@ -3,6 +3,8 @@ package main
 import "github.com/fdelbos/slog"
 
 func main() {
+	slog.Enabled = true
+
 	slog.Service("Postgres")
 	slog.Value("Host", "192.168.1.1")
 	slog.Value("Database", "test")
