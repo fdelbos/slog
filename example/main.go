@@ -7,7 +7,7 @@ func main() {
 	slog.Value("Host", "192.168.1.1")
 	slog.Value("Database", "test")
 	slog.Value("User", "me")
-	slog.Secret("Password")
+	slog.Secret("Password", "my_secret_password")
 	slog.Value("SSL", true)
 	slog.Value("Pool idle", 10)
 	slog.Value("Pool max", 30)
@@ -15,7 +15,7 @@ func main() {
 	slog.Service("redis")
 	slog.Value("Host", "localhost")
 	slog.Value("Port", 6379)
-	slog.Value("Password", "")
+	slog.Secret("Password", "")
 	slog.Value("DB", nil)
 
 	slog.Service("Geometry")

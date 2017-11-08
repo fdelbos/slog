@@ -67,6 +67,20 @@ func Value(name string, value interface{}) {
 	}
 }
 
-func Secret(name string) {
-	line(name, "(secret)")
+func Secret(name string, value interface{}) {
+	if value == nil {
+		line(name, "(nil)")
+	} else {
+		switch t := value.(type) {
+		case string:
+			if t == "" {
+				line(name, "(empty)")
+			} else {
+				line(name, "(secret)")
+			}
+		default:
+			line(name, "(secret)")
+		}
+	}
+
 }
