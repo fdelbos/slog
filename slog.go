@@ -20,8 +20,8 @@ func line(name, value string) {
 	if len(name) > 26 {
 		name = name[:26]
 	}
-	if len(value) > 46 {
-		value = value[:46]
+	if len(value) > 45 {
+		value = value[:45] + "..."
 	}
 
 	fmt.Printf(
@@ -36,8 +36,8 @@ func Service(name string) {
 	if !Enabled {
 		return
 	}
-	if len(name) > 74 {
-		name = name[:74]
+	if len(name) > 75 {
+		name = name[:75] + "..."
 	}
 	fmt.Printf("\n  %s \n", strings.ToUpper(name))
 
